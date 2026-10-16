@@ -1,6 +1,6 @@
 package appcredentials
 
-import "github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/appbuildcredentials"
+import "github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/appbuildcredentials"
 
 func mapData(data data) Data {
 	buildCredentials := []appbuildcredentials.Data{}

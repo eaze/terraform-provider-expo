@@ -3,7 +3,7 @@ package googleserviceaccountkey
 import (
 	"fmt"
 
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/utils"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/utils"
 )
 
 type getAccount struct {

@@ -1,13 +1,21 @@
 package appvariable
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
+
+var (
+	ErrNotFound    = errors.New("environment variable not found")
+	ErrAppNotFound = errors.New("app not found or not accessible with this token")
+)
 
 type appById struct {
 	Data []Data `json:"environmentVariablesIncludingSensitive"`
 }
 
 type getResponse struct {
-	AppByAppId appById `json:"appByAppId"`
+	AppByAppId *appById `json:"appByAppId"`
 }
 
 const getQuery = `
@@ -28,8 +36,13 @@ func (service *service) getAppEnvironmentVariables(appId string) ([]Data, error)
 
 	var response getResponse
 
-	err := service.graphql.Query(getQuery, variables, &response)
-	return response.AppByAppId.Data, err
+	if err := service.graphql.Query(getQuery, variables, &response); err != nil {
+		return nil, err
+	}
+	if response.AppByAppId == nil {
+		return nil, fmt.Errorf("%w: appId %s", ErrAppNotFound, appId)
+	}
+	return response.AppByAppId.Data, nil
 }
 
 // Retrieves an App Environment Variable from EAS by it's name and appId
@@ -57,7 +70,7 @@ func findByName(variables []Data, name string) (*Data, error) {
 			return &variable, nil
 		}
 	}
-	return nil, fmt.Errorf("couldn't find variable with name %s", name)
+	return nil, fmt.Errorf("%w: name %s", ErrNotFound, name)
 }
 
 func findById(variables []Data, id string) (*Data, error) {
@@ -66,5 +79,5 @@ func findById(variables []Data, id string) (*Data, error) {
 			return &variable, nil
 		}
 	}
-	return nil, fmt.Errorf("couldn't find variable with id %s", id)
+	return nil, fmt.Errorf("%w: id %s", ErrNotFound, id)
 }

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/elevenode/terraform-provider-expo/internal/client"
-	"github.com/elevenode/terraform-provider-expo/internal/eas"
+	"github.com/eaze/terraform-provider-expo/internal/client"
+	"github.com/eaze/terraform-provider-expo/internal/eas"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )

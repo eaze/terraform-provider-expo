@@ -1,6 +1,6 @@
 package utils
 
-import "github.com/elevenode/terraform-provider-expo/internal/eas/internal/graphql"
+import "github.com/eaze/terraform-provider-expo/internal/eas/internal/graphql"
 
 type Configuration[InputType any, OutputType any, ResponseType any] struct {
 	Query        string

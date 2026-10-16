@@ -3,7 +3,7 @@ package updatebranch
 import (
 	"testing"
 
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/utils"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/utils"
 )
 
 func TestGetByName(t *testing.T) {

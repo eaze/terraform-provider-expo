@@ -4,7 +4,7 @@ Thanks for your interest in contributing to the Expo (EAS) Terraform provider. I
 
 ## Reporting issues
 
-- Search [existing issues](https://github.com/elevenode/terraform-provider-expo/issues) first.
+- Search [existing issues](https://github.com/eaze/terraform-provider-expo/issues) first.
 - Open a bug report or feature request using the provided templates.
 - For security vulnerabilities, do **not** open a public issue — see [SECURITY.md](../SECURITY.md).
 
@@ -24,7 +24,7 @@ To try the provider locally, add a `dev_overrides` block to `~/.terraformrc`:
 ```hcl
 provider_installation {
   dev_overrides {
-    "elevenode/expo" = "<your GOBIN, e.g. /Users/you/go/bin>"
+    "eaze/expo" = "<your GOBIN, e.g. /Users/you/go/bin>"
   }
   direct {}
 }

@@ -35,9 +35,22 @@ resource "expo_app_variable" "this" {
 - `app_id` (String) The id of the app for the environment variable
 - `environments` (Set of String) The environments of the app for the environment variable
 - `name` (String) The name of the app for the environment variable
-- `value` (String) The value of the app for the environment variable
+- `value` (String, Sensitive) The value of the app for the environment variable
 - `visibility` (String) The visibility of the app for the environment variable
 
 ### Read-Only
 
 - `id` (String) The id of the environment variable
+
+## Import
+
+Import is supported using the following syntax:
+
+The [`terraform import` command](https://developer.hashicorp.com/terraform/cli/commands/import) can be used, for example:
+
+```shell
+# Environment variables are scoped to an app, so the import id is
+# <app_id>/<variable_id>. Both ids come from `eas project:info` and
+# `eas env:list --environment <env> --format long`.
+terraform import expo_app_variable.this 00000000-0000-0000-0000-000000000000/11111111-1111-1111-1111-111111111111
+```

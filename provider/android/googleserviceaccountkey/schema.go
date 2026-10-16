@@ -1,7 +1,7 @@
 package googleserviceaccountkey
 
 import (
-	"github.com/elevenode/terraform-provider-expo/provider/android/googleserviceaccountkey/operations"
+	"github.com/eaze/terraform-provider-expo/provider/android/googleserviceaccountkey/operations"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )

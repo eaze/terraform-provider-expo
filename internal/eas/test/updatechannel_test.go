@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/elevenode/terraform-provider-expo/internal/eas"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/test/utils"
+	"github.com/eaze/terraform-provider-expo/internal/eas"
+	"github.com/eaze/terraform-provider-expo/internal/eas/test/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

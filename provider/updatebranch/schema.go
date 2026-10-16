@@ -1,7 +1,7 @@
 package updatebranch
 
 import (
-	"github.com/elevenode/terraform-provider-expo/provider/updatebranch/operations"
+	"github.com/eaze/terraform-provider-expo/provider/updatebranch/operations"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )

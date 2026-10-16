@@ -2,14 +2,14 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
 
 jobs:
-  Verify:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v7
         with:
-          go-version: stable
+          go-version-file: go.mod
           cache: true
 
       - name: Check formatting
@@ -33,75 +33,11 @@ jobs:
       - name: Unit tests
         run: go test $(go list ./... | grep -v '/internal/eas/test') -count=1
 
-  Version:
-    runs-on: ubuntu-latest
-    needs: [Verify]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - name: Check for existing tags
-        id: tags
-        run: |
-          if [ -z "$(git tag -l)" ]; then
-            echo "exist=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "exist=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Get next version
-        id: semver
-        if: steps.tags.outputs.exist == 'true'
-        uses: ietf-tools/semver-action@v1.11.0
-        with:
-          token: ${{ github.token }}
-          branch: main
-          noVersionBumpBehavior: patch
-
-      - name: Resolve version (default to v1.0.0 when no prior tag exists)
-        id: version
-        run: |
-          if [ "${{ steps.tags.outputs.exist }}" = "true" ]; then
-            echo "next=${{ steps.semver.outputs.next }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "next=v1.0.0" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Create release
-        uses: ncipollo/release-action@v1.21.0
-        with:
-          makeLatest: true
-          name: ${{ steps.version.outputs.next }}
-          tag: ${{ steps.version.outputs.next }}
-          generateReleaseNotes: true
-          token: ${{ github.token }}
-
-  Release:
-    runs-on: ubuntu-latest
-    needs: [Version]
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-go@v7
-        with:
-          go-version: stable
-          cache: true
-
-      - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@v7
-        id: import_gpg
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v7
-        with:
-          args: release --clean
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+  release:
+    needs: verify
+    uses: hashicorp/ghaction-terraform-provider-release/.github/workflows/community.yml@v5
+    with:
+      setup-go-version-file: go.mod
+    secrets:
+      gpg-private-key: ${{ secrets.TERRAFORM_PROVIDER_EXPO_GPG_PRIVATE_KEY }}
+      gpg-private-key-passphrase: ${{ secrets.TERRAFORM_PROVIDER_EXPO_GPG_PASSPHRASE }}

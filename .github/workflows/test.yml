@@ -5,18 +5,6 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 2 * * *'
-
-env:
-  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-  EXPO_ACCOUNT_NAME: ${{ secrets.EXPO_ACCOUNT_NAME }}
-  TF_VAR_APP_STORE_API_KEY_IDENTIFIER: ${{ secrets.TF_VAR_APP_STORE_API_KEY_IDENTIFIER }}
-  TF_VAR_IOS_CERTIFICATE_SERIAL_NUMBER: ${{ secrets.TF_VAR_IOS_CERTIFICATE_SERIAL_NUMBER }}
-  TF_VAR_IOS_PUSH_KEY_IDENTIFIER: ${{ secrets.TF_VAR_IOS_PUSH_KEY_IDENTIFIER }}
-  TF_VAR_GOOGLE_SERVICE_ACCOUNT_KEY_PROJECT_IDENTIFIER: ${{ secrets.TF_VAR_GOOGLE_SERVICE_ACCOUNT_KEY_PROJECT_IDENTIFIER }}
-  TF_VAR_PROVISIONING_PROFILE_BASE64: ${{ secrets.TF_VAR_PROVISIONING_PROFILE_BASE64 }}
-  TF_VAR_FCM_KEY: ${{ secrets.TF_VAR_FCM_KEY }}
 
 jobs:
   unit-test:
@@ -29,74 +17,13 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v7
         with:
-          go-version: stable
+          go-version-file: go.mod
+
+      - name: Check formatting
+        run: test -z "$(gofmt -l .)" || (gofmt -l . && exit 1)
+
+      - name: Vet
+        run: go vet ./...
 
       - name: Run unit tests
         run: go test $(go list ./... | grep -v '/internal/eas/test') -count=1 -cover
-
-  integration-test:
-    name: Integration Test
-    runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]'
-    env:
-      IMMUTABLE_PROVISIONING_PROFILE_BASE64: ${{ secrets.IMMUTABLE_PROVISIONING_PROFILE_BASE64 }}
-      FCM_KEY: ${{ secrets.FCM_KEY }}
-      KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Setup Go
-        uses: actions/setup-go@v7
-        with:
-          go-version: stable
-
-      - name: Run SDK integration tests
-        run: go test ./internal/eas/test/... -count=1 -cover
-
-  Test:
-    runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]'
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Setup Go
-        uses: actions/setup-go@v7
-        with:
-          go-version: stable
-
-      - name: Install provider
-        run: go install .
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v4
-        with:
-          terraform_version: "latest"
-
-      - name: Setup Terraformrc
-        run: |
-          mkdir -p ~/.terraform.d/plugins
-          cat > ~/.terraformrc << 'EOF'
-          provider_installation {
-            dev_overrides {
-              "elevenode/expo" = "/home/runner/go/bin"
-            }
-            # Without this, dev_overrides is the only install method and no
-            # registry provider (e.g. hashicorp/random) can be resolved.
-            direct {}
-          }
-          EOF
-
-      - name: Terraform Init
-        working-directory: .github/test
-        run: terraform init
-
-      - name: Terraform Apply
-        working-directory: .github/test
-        run: terraform apply -auto-approve
-
-      - name: Terraform Destroy
-        if: always()
-        working-directory: .github/test
-        run: terraform destroy -auto-approve

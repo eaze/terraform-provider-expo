@@ -3,7 +3,7 @@ package client
 import (
 	"fmt"
 
-	"github.com/elevenode/terraform-provider-expo/internal/eas"
+	"github.com/eaze/terraform-provider-expo/internal/eas"
 )
 
 type EASClient struct {

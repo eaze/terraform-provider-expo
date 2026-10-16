@@ -1,6 +1,6 @@
 package account
 
-import "github.com/elevenode/terraform-provider-expo/internal/eas/internal/graphql"
+import "github.com/eaze/terraform-provider-expo/internal/eas/internal/graphql"
 
 type Data struct {
 	Id   string `json:"id"`

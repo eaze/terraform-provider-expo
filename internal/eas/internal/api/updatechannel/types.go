@@ -1,8 +1,8 @@
 package updatechannel
 
 import (
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/backgroundjob"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/graphql"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/backgroundjob"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/graphql"
 )
 
 type Data struct {

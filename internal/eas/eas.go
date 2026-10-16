@@ -1,17 +1,17 @@
 package eas
 
 import (
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/account"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/accountvariable"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/app"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/appvariable"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/backgroundjob"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/me"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/updatebranch"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/updatechannel"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/graphql"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/account"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/accountvariable"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/app"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/appvariable"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/backgroundjob"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/me"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/updatebranch"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/updatechannel"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/graphql"
 )
 
 // EASClient capable of interacting with Expo EAS GraphQL API
