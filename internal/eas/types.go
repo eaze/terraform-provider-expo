@@ -1,28 +1,28 @@
 package eas
 
 import (
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/account"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/accountvariable"
-	androidappbuildcredentials "github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/appbuildcredentials"
-	androidappcredentials "github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/appcredentials"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/fcmkey"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/googleserviceaccountkey"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/keystore"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/app"
-	appleappbuildcredentials "github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple/appbuildcredentials"
-	appleappcredentials "github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple/appcredentials"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple/appidentifier"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple/appstoreapikey"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple/certificate"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple/provisioningprofile"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple/pushkey"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/apple/team"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/appvariable"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/backgroundjob"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/environmentvariable"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/me"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/updatebranch"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/updatechannel"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/account"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/accountvariable"
+	androidappbuildcredentials "github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/appbuildcredentials"
+	androidappcredentials "github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/appcredentials"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/fcmkey"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/googleserviceaccountkey"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/keystore"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/app"
+	appleappbuildcredentials "github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple/appbuildcredentials"
+	appleappcredentials "github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple/appcredentials"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple/appidentifier"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple/appstoreapikey"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple/certificate"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple/provisioningprofile"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple/pushkey"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/apple/team"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/appvariable"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/backgroundjob"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/environmentvariable"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/me"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/updatebranch"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/updatechannel"
 )
 
 type MeData = me.Data
@@ -34,6 +34,11 @@ type UpdateEnvironmentVariableData = environmentvariable.UpdateData
 type AppData = app.Data
 type CreateAppData = app.CreateData
 type UpdateAppData = app.UpdateData
+
+var (
+	ErrAppVariableNotFound = appvariable.ErrNotFound
+	ErrAppNotFound         = appvariable.ErrAppNotFound
+)
 
 type AppVariableData = appvariable.Data
 type CreateAppVariableData = appvariable.CreateData

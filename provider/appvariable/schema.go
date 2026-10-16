@@ -1,7 +1,7 @@
 package appvariable
 
 import (
-	"github.com/elevenode/terraform-provider-expo/provider/appvariable/operations"
+	"github.com/eaze/terraform-provider-expo/provider/appvariable/operations"
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -14,11 +14,13 @@ func Resource() *schema.Resource {
 		CreateContext: operations.Create,
 		UpdateContext: operations.Update,
 		DeleteContext: operations.Delete,
+		Importer:      &schema.ResourceImporter{StateContext: operations.Import},
 		Schema: map[string]*schema.Schema{
 			"app_id": {
 				Description: "The id of the app for the environment variable",
 				Type:        schema.TypeString,
 				Required:    true,
+				ForceNew:    true,
 			},
 			"name": {
 				Description: "The name of the app for the environment variable",
@@ -34,6 +36,7 @@ func Resource() *schema.Resource {
 				Description: "The value of the app for the environment variable",
 				Type:        schema.TypeString,
 				Required:    true,
+				Sensitive:   true,
 			},
 			"visibility": {
 				Description:  "The visibility of the app for the environment variable",
