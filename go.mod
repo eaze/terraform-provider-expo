@@ -1,4 +1,4 @@
-module github.com/elevenode/terraform-provider-expo
+module github.com/eaze/terraform-provider-expo
 
 go 1.25.8
 

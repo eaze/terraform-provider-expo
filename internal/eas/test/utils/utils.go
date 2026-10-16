@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"os"
 
-	"github.com/elevenode/terraform-provider-expo/internal/eas"
+	"github.com/eaze/terraform-provider-expo/internal/eas"
 )
 
 var Token = os.Getenv("EXPO_TOKEN")

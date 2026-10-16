@@ -1,7 +1,7 @@
 package appcredentials
 
 import (
-	"github.com/elevenode/terraform-provider-expo/provider/ios/appcredentials/operations"
+	"github.com/eaze/terraform-provider-expo/provider/ios/appcredentials/operations"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )

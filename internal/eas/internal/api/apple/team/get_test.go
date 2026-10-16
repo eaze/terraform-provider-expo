@@ -3,7 +3,7 @@ package team
 import (
 	"testing"
 
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/graphql"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/graphql"
 	"github.com/stretchr/testify/assert"
 )
 

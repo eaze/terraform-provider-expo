@@ -1,7 +1,7 @@
 package provisioningprofile
 
 import (
-	"github.com/elevenode/terraform-provider-expo/provider/ios/provisioningprofile/operations"
+	"github.com/eaze/terraform-provider-expo/provider/ios/provisioningprofile/operations"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )

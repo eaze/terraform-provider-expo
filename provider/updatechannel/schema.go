@@ -3,7 +3,7 @@ package updatechannel
 import (
 	"time"
 
-	"github.com/elevenode/terraform-provider-expo/provider/updatechannel/operations"
+	"github.com/eaze/terraform-provider-expo/provider/updatechannel/operations"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"

@@ -3,7 +3,7 @@ package updatechannel
 import (
 	"fmt"
 
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/backgroundjob"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/backgroundjob"
 )
 
 type scheduleUpdateChannelDeletion struct {

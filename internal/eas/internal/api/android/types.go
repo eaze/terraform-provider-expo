@@ -1,12 +1,12 @@
 package android
 
 import (
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/appbuildcredentials"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/appcredentials"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/fcmkey"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/googleserviceaccountkey"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/android/keystore"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/graphql"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/appbuildcredentials"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/appcredentials"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/fcmkey"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/googleserviceaccountkey"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/android/keystore"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/graphql"
 )
 
 type Service struct {

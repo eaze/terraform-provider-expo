@@ -3,8 +3,8 @@ package test
 import (
 	"testing"
 
-	"github.com/elevenode/terraform-provider-expo/internal/eas/internal/api/me"
-	"github.com/elevenode/terraform-provider-expo/internal/eas/test/utils"
+	"github.com/eaze/terraform-provider-expo/internal/eas/internal/api/me"
+	"github.com/eaze/terraform-provider-expo/internal/eas/test/utils"
 	"github.com/stretchr/testify/assert"
 )
 
