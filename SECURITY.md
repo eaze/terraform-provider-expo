@@ -2,13 +2,13 @@
 
 ## Supported Versions
 
-The latest released version on the [Terraform Registry](https://registry.terraform.io/providers/elevenode/expo/latest) is supported. Please upgrade to the latest version before reporting an issue.
+The latest released version on the [Terraform Registry](https://registry.terraform.io/providers/eaze/expo/latest) is supported. Please upgrade to the latest version before reporting an issue.
 
 ## Reporting a Vulnerability
 
 Please do **not** open a public issue for security vulnerabilities.
 
-Instead, report them privately using GitHub's [private vulnerability reporting](https://github.com/elevenode/terraform-provider-expo/security/advisories/new) ("Report a vulnerability" under the Security tab).
+Instead, report them privately using GitHub's [private vulnerability reporting](https://github.com/eaze/terraform-provider-expo/security/advisories/new) ("Report a vulnerability" under the Security tab).
 
 Please include:
 

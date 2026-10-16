@@ -1,7 +1,7 @@
 # Expo Application Services (EAS) Terraform Provider
 
-[![Terraform Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.terraform.io%2Fv1%2Fproviders%2Felevenode%2Fexpo&query=%24.version&label=terraform%20registry&color=7B42BC&logo=terraform)](https://registry.terraform.io/providers/elevenode/expo/latest)
-[![License](https://img.shields.io/github/license/elevenode/terraform-provider-expo)](./LICENSE)
+[![Terraform Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.terraform.io%2Fv1%2Fproviders%2Feaze%2Fexpo&query=%24.version&label=terraform%20registry&color=7B42BC&logo=terraform)](https://registry.terraform.io/providers/eaze/expo/latest)
+[![License](https://img.shields.io/github/license/eaze/terraform-provider-expo)](./LICENSE)
 
 Manage [Expo Application Services (EAS)](https://expo.dev/eas) as code: EAS apps, credentials, environment variables, and update channels. Backed by the Expo EAS GraphQL API.
 
@@ -13,7 +13,7 @@ Add the provider to your Terraform configuration:
 terraform {
   required_providers {
     expo = {
-      source = "elevenode/expo"
+      source = "eaze/expo"
     }
   }
 }
@@ -24,7 +24,7 @@ provider "expo" {
 }
 ```
 
-Then run `terraform init` to download the provider from the [Terraform Registry](https://registry.terraform.io/providers/elevenode/expo/latest).
+Then run `terraform init` to download the provider from the [Terraform Registry](https://registry.terraform.io/providers/eaze/expo/latest).
 
 ## Authentication
 
@@ -44,7 +44,7 @@ The provider requires an Expo access token and account name.
 
 ## Documentation
 
-Full resource and data-source documentation is on the [Terraform Registry](https://registry.terraform.io/providers/elevenode/expo/latest/docs).
+Full resource and data-source documentation is on the [Terraform Registry](https://registry.terraform.io/providers/eaze/expo/latest/docs).
 
 Runnable examples live in the [examples directory](./examples):
 

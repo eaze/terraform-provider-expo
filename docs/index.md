@@ -15,7 +15,7 @@ description: |-
 terraform {
   required_providers {
     expo = {
-      source = "elevenode/expo"
+      source = "eaze/expo"
     }
   }
 }
